@@ -11,7 +11,7 @@ repository_name = os.path.basename(dirname(dirname(abspath(__file__))))
 
 if not os.path.exists(os.path.join(parent_path, 'env')):
     print('venv creating started')
-    venv_creation_result = subprocess.run(['python3', '-m', 'venv', 'env'], capture_output=True)
+    venv_creation_result = subprocess.run(['python3', '-m', 'venv', 'env'], capture_output=True, cwd='..')
     print(venv_creation_result.stdout.decode() + venv_creation_result.stderr.decode())
     print('venv activation')
     source_activation = subprocess.run(['source', 'env/bin/activate'], capture_output=True)
