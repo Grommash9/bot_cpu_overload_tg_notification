@@ -29,7 +29,9 @@ while True:
     load1, load5, load15 = psutil.getloadavg()
     cpu_usage = (load5 / os.cpu_count()) * 100
     if cpu_usage > config.CPU_USAGE:
-        send_telegram_message(f'CPU usage is above {round(cpu_usage)}% for last 5 minutes')
+        cpu_usage_1_min = (load1 / os.cpu_count()) * 100
+        send_telegram_message(f'CPU usage is above {round(cpu_usage)}% for last 5 minutes\n'
+                              f'Usage is above {round(load1)}% for last 1 minute')
     ram_usage = psutil.virtual_memory()[3] / psutil.virtual_memory().total * 100
     if ram_usage > config.RAM_USAGE:
         send_telegram_message(f'RAM usage is above {round(ram_usage)}%')
