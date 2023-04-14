@@ -16,7 +16,7 @@ if not os.path.exists(os.path.join(parent_path, 'env')):
     print(venv_creation_result.stdout.decode() + venv_creation_result.stderr.decode())
     print('=' * 70)
     print('pip installation')
-    venv_activate_path = '../venv/bin/python'
+    venv_activate_path = '../env/bin/python'
     requirements_path = '../requirements.txt'
     result = subprocess.run([venv_activate_path, '-m', 'pip', 'install', '-r', requirements_path], capture_output=True)
     print(result.stdout.decode() + result.stderr.decode())
