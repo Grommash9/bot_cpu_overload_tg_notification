@@ -14,7 +14,7 @@ if not os.path.exists(os.path.join(parent_path, 'env')):
     venv_creation_result = subprocess.run(['python3', '-m', 'venv', 'env'], capture_output=True, cwd='..')
     print(venv_creation_result.stdout.decode() + venv_creation_result.stderr.decode())
     print('venv activation')
-    source_activation = subprocess.run(['source', 'env/bin/activate'], capture_output=True)
+    source_activation = subprocess.run(['source env/bin/activate'], capture_output=True, cwd='..')
     print(source_activation.stdout.decode() + source_activation.stderr.decode())
     print('pip installation')
     pip = subprocess.run(['pip', 'install', '-r', 'requirements.txt'], capture_output=True)
