@@ -13,12 +13,15 @@ if not os.path.exists(os.path.join(parent_path, 'env')):
     print('venv creating started')
     venv_creation_result = subprocess.run(['python3', '-m', 'venv', 'env'], capture_output=True, cwd='..')
     print(venv_creation_result.stdout.decode() + venv_creation_result.stderr.decode())
+    print('=' * 20)
     print('venv activation')
-    source_activation = subprocess.run(['source env/bin/activate'], capture_output=True, cwd='..', shell=True)
+    source_activation = subprocess.run(['source env/bin/activate; echo $PATH'], capture_output=True, cwd='..', shell=True)
     print(source_activation.stdout.decode() + source_activation.stderr.decode())
+    print('=' * 20)
     print('pip installation')
     pip = subprocess.run(['pip install -r requirements.txt'], capture_output=True, shell=True, cwd='..')
     print(pip.stdout.decode() + pip.stderr.decode())
+    print('=' * 20)
 
 
 if not os.path.exists(os.path.join(parent_path, '.env')):
