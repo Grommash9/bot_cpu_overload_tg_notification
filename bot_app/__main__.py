@@ -1,6 +1,6 @@
 import os
 import time
-import config
+from bot_app import config
 import psutil
 import requests
 import socket
