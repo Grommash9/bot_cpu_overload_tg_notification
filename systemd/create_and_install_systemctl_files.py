@@ -18,7 +18,7 @@ if not os.path.exists(os.path.join(parent_path, 'env')):
     print('pip installation')
     venv_activate_path = '../env/bin/activate'
     pip_command = 'pip install -r requirements.txt'
-    pip_command_full = f"bash -c 'source {venv_activate_path}/bin/activate && {pip_command}'"
+    pip_command_full = f"bash -c 'source {venv_activate_path} && {pip_command}'"
     pip = subprocess.run([pip_command_full], capture_output=True, shell=True, cwd='..')
     print(pip.stdout.decode() + pip.stderr.decode())
     print('=' * 70)
